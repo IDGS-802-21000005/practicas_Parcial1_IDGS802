@@ -1,0 +1,39 @@
+{% extends "layout.html" %} {%block content %} 
+<div class="row">
+  <div class="col-md-6">
+    <h1>Calculadora basica</h1>
+  
+    <form action="/" method="POST">
+      <label>Numero 1:</label>
+      <input type="number" name="n1" />
+      <br />
+      <label>Numero 2:</label>
+      <input type="number" name="n2" />
+      <br /><br />
+      <label>Selecciona el tipo de operacion</label>
+      <br>
+  
+      <label for="+">Suma</label>
+      <input type="radio" value="+" name="operacion" />
+      <br />
+      <label for="-">Resta</label>
+      <input type="radio" value="-" name="operacion" />
+      <br />
+      <label for="*">Multiplicacion</label>
+      <input type="radio" value="*" name="operacion" />
+      <br />
+      <label for="/">Division</label>
+      <input type="radio" value="/" name="operacion" />
+  
+      <br />
+  
+      <input type="submit" value="Calcular" />
+    </form>
+  </div>
+  <div class="col-md-4">
+    {% if resultado %}
+    <h1>El resultado es {{ resultado }}</h1>
+    {% endif %}
+  </div>
+</div>
+{%endblock%}
