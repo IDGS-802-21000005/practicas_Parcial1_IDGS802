@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{%block content %}
+{%import "_macros.html" as macros%}
+<h1 class="h1"> Distancia</h1>
+<form action="" method="POST">
+    {{macros.input_Form(form.n1, class="form-control")}}
+    {{macros.input_Form(form.n2, class="form-control")}}
+    {{macros.input_Form(form.n3, class="form-control")}}
+    {{macros.input_Form(form.n4, class="form-control")}}
+<input type="submit" name="btn1">
+</form>
+<h1>Resultado: {{res}}</h1>
+
+{%endblock %}
