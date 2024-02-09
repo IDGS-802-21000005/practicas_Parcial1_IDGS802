@@ -1,11 +1,11 @@
 from flask import Flask, request,render_template
-import forms
+import forms as forms
 app = Flask(__name__)
 
 
 @app.route("/",methods=["GET","POST"])
 def distancia():
-    alumnos_form=forms.UserForm(request.form)
+    alumnos_form=forms.DistanceForm(request.form)
     res=""
     if request.method == "POST":
         n1=int(alumnos_form.n1.data)
