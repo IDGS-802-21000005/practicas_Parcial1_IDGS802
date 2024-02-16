@@ -1,0 +1,52 @@
+{% extends 'layout.html' %} {%block content %} {%import "_macros.html" as
+macros%}
+<div class="row">
+  <div class="col-md-6">
+    <h1 class="h1">Alimentar diccionario</h1>
+
+    <form action="/agregar" method="POST" nonvalidate>
+      {{macros.traductor_field(form1.ingles, class="form-control")}}
+      {{macros.traductor_field(form1.espanol, class="form-control")}}
+      <input type="submit" name="btn1"  class="btn btn-primary"/>
+    </form>
+  </div>
+  <div class="col-md-6">
+    <h1>
+        Diccionario
+    </h1>
+    <div style="overflow: auto; height:200px;">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Ingles</th>
+                <th>Español</th>
+            </tr>
+            </thead>
+            <tbody>
+            {%for palabra in palabras%}
+            <tr>
+                <td>{{palabra.ingles}}</td>
+                <td>{{palabra.espanol}}</td>
+            </tr>
+            {%endfor%}
+            </tbody>
+        </table>
+    </div>
+  </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <h1>Buscar traduccion</h1>
+        <form action="/traducir" method="POST" nonvalidate>
+            {{macros.traductor_field(form2.idioma, class="form-control",
+            style='list-style-type: none;')}}
+            {{macros.traductor_field(form2.palabra, class="form-control")}}
+            <input type="submit" name="btn2" class="btn btn-primary"/>
+    </div>
+    <div class="col-md-6">
+        <h1>La traduccion es:</h1>
+        <div style="border:solid; color:red">{{trad}}</div>
+    </div>
+</div>
+
+{%endblock %}

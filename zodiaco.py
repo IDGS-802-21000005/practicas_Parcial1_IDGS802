@@ -22,6 +22,7 @@ def zodiaco():
             "cerdo":"https://ccl.uanl.mx/wp-content/uploads/2023/10/06_horoscopo_chino_Cerdo-768x657-1.jpg",
         }
         
+        
         if request.method=="POST":
               
             nombre=request.form.get("nombre")
@@ -33,7 +34,7 @@ def zodiaco():
             
             edad = 2024-int(anio)
             
-            if int(mes) < 2 or (int(mes) == 2 and int(dia) < 8):
+            if int(mes) > 2 or (int(mes) == 2 and int(dia) > 15):
                 edad=edad-1
                 
             signo = ""

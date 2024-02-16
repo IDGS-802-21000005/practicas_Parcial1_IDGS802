@@ -1,0 +1,6 @@
+wave:ola
+hello:hola
+key:llave
+chicken:gallina
+cock:gallo
+man:hombre

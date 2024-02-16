@@ -1,6 +1,7 @@
 from wtforms import Form
-from wtforms import StringField, TextAreaField, SelectField, RadioField
+from wtforms import StringField, TextAreaField,IntegerField, SelectField, RadioField
 from wtforms import EmailField
+from wtforms import validators
 
 
 class UserForm(Form):
@@ -31,7 +32,6 @@ class ZodiacoForm(Form):
     mes=StringField("mes")
     anio=StringField("anio")
     sexo= RadioField(choices=[('m','Masculino'),('f','Femenino')])
-    
     
 class ResistenciaForm(Form):
     banda1=SelectField(choices=[
@@ -71,3 +71,17 @@ class ResistenciaForm(Form):
                                  ('9','Blanco', {'style':'background-color:white; color: black'})
                                  ])
     tolerancia= RadioField(choices=[('0.05','Dorado'),('0.10','Plata')])
+
+class TraductorForm1(Form):
+    ingles=StringField("ingles",
+                       [validators.DataRequired(message='el campo en ingles es requerido'),
+        validators.length(min=2, max=50, message='Ingresa una palabra valida')])
+    espanol=StringField("espanol",
+                       [validators.DataRequired(message='el campo en español es requerido'),
+        validators.length(min=2, max=50, message='Ingresa una palabra valida')])
+class TraductorForm2(Form):
+    palabra=StringField("palabra",
+                       [validators.DataRequired(message='el campo palabra es requerido'),
+        validators.length(min=2, max=50, message='Ingresa una palabra valida')])
+    idioma= RadioField('idioma',choices=[('ingles','Inglés'),('espanol','Español')], validators=[validators.DataRequired(message='Selecciona un idioma')])
+    
